@@ -8,14 +8,11 @@ classes:
 - system.keystone.server.single
 - service.galera.master.cluster
 - system.galera.server.database.cinder
-- system.galera.server.database.designate
 - system.galera.server.database.glance
 - system.galera.server.database.heat
 - system.galera.server.database.keystone
 - system.galera.server.database.nova
-- system.galera.server.database.barbican
 - system.keystone.client.single
-- system.keystone.client.service.barbican
 - system.keystone.client.service.nova21
 - system.glance.control.single
 - system.nova.control.single
@@ -88,6 +85,7 @@ parameters:
     openstack_public_neutron_subnet_cidr: 192.168.130.0/24
     openstack_public_neutron_subnet_allocation_start: 192.168.130.10
     openstack_public_neutron_subnet_allocation_end: 192.168.130.254
+    barbican_integration_enabled: False
   galera:
     master:
       members: ~
