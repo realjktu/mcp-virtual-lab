@@ -8,14 +8,11 @@ classes:
 - system.keystone.server.single
 - service.galera.master.cluster
 - system.galera.server.database.cinder
-- system.galera.server.database.designate
 - system.galera.server.database.glance
 - system.galera.server.database.heat
 - system.galera.server.database.keystone
 - system.galera.server.database.nova
-- system.galera.server.database.barbican
 - system.keystone.client.single
-- system.keystone.client.service.barbican
 - system.keystone.client.service.nova21
 - system.glance.control.single
 - system.nova.control.single
@@ -50,14 +47,12 @@ parameters:
     horizon_version: ${_param:openstack_version}
     keystone_service_token: workshop
     keystone_admin_password: workshop
-    keystone_barbican_password: workshop
     keystone_ceilometer_password: workshop
     keystone_cinder_password: workshop
     keystone_glance_password: workshop
     keystone_heat_password: workshop
     keystone_neutron_password: workshop
     keystone_nova_password: workshop
-    keystone_designate_password: workshop
     keystone_service_host: ${_param:single_address}
     mysql_keystone_password: workshop
     mysql_glance_password: workshop
@@ -104,8 +99,6 @@ parameters:
       dvr: True
   nova:
     compute:
-      barbican:
-        enabled: ${_param:barbican_integration_enabled}
       vncproxy_url: http://${_param:single_address}:6080
       network:
         user: neutron
@@ -114,20 +107,12 @@ parameters:
       cache:
         members: ~
     controller:
-      barbican:
-        enabled: ${_param:barbican_integration_enabled}
       vncproxy_url: http://${_param:single_address}:6080
   cinder:
     controller:
-      barbican:
-        enabled: ${_param:barbican_integration_enabled}
     volume:
       cache:
         members: ~
   horizon:
     server:
       secure: False
-  glance:
-    server:
-      barbican:
-        enabled: ${_param:barbican_integration_enabled}
