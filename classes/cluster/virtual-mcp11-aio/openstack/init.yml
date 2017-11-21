@@ -83,7 +83,6 @@ parameters:
     openstack_public_neutron_subnet_cidr: 192.168.130.0/24
     openstack_public_neutron_subnet_allocation_start: 192.168.130.10
     openstack_public_neutron_subnet_allocation_end: 192.168.130.254
-    barbican_integration_enabled: False
   galera:
     master:
       members: ~
