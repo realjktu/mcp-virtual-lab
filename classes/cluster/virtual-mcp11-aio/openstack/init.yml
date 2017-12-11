@@ -109,7 +109,6 @@ parameters:
     controller:
       vncproxy_url: http://${_param:single_address}:6080
   cinder:
-    controller:
     volume:
       cache:
         members: ~
